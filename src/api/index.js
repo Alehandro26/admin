@@ -76,6 +76,12 @@ export async function getStatistics(start, end) {
 }
 
 export async function getSettings() {
+    if (useMock) {
+        return {
+            promoCode: 'PROMO2023',
+            promoCodeLink: 'https://your-promocode.com'
+        }
+    }
     try {
         const {data} = await api.get('/admin-panel/settings');
         return data;
@@ -86,6 +92,9 @@ export async function getSettings() {
 
 
 export async function sendSettings(promocode, link) {
+    if (useMock) {
+        return;
+    }
     try {
         const {data} = await api.post('/admin-panel/settings', {
             promoCode: promocode,

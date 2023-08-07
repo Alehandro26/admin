@@ -101,20 +101,34 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/vars.less';
+
 .statistics {
     &__header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media @tablet {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
     &__title {
         font-size: 28px;
         font-weight: 800;
         line-height: 20px;
+
+        @media @tablet {
+            padding-bottom: 20px;
+        }
     }
 
-    &__filter {}
+    &__filter {
+        display: flex;
+        align-items: center;
+    }
 
     &__input {
         padding: 8px 14px;
@@ -127,6 +141,15 @@ export default {
         font-weight: 400;
         line-height: 24px;
         box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+        @media @tablet {
+            padding: 4px 7px;
+        }
+
+        @media @mobile {
+            width: 68px;
+            font-size: 10px;
+        }
 
         &.vdpWithInput>input {
             width: 100%;
@@ -175,7 +198,8 @@ export default {
     }
 
     &__button {
-        padding: 10px 14px;
+        padding: 0 14px;
+        align-self: stretch;
         margin-left: 24px;
         font-size: 14px;
         font-style: normal;
@@ -184,6 +208,14 @@ export default {
         border-radius: 8px;
         box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
+        @media @tablet {
+            padding: 0 8px;
+        }
+
+        @media @mobile {
+            font-size: 12px;
+            margin-left: 10px;
+        }
     }
 
     &__content {
@@ -210,6 +242,7 @@ export default {
     &__item {
         padding: 8px;
         flex: 1 1 50%;
+        align-self: stretch;
         border: 0.5px solid rgba(0, 0, 0, 0.06);
         color: rgba(0, 0, 0, 0.88);
         font-size: 14px;

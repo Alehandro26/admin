@@ -25,11 +25,21 @@ export default {
 </script>
 
 <style lang="less">
+@import '../styles/vars.less';
+
 .menu {
   padding: 32px 28px 28px;
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  @media @tablet {
+    padding: 20px 18px 18px;
+  }
+
+  @media @mobile {
+    padding: 20px 10px 18px;
+  }
 
   &__wrapper {
     padding-top: 40px;
@@ -40,6 +50,11 @@ export default {
   &__sidebar {
     flex: 0 0 256px;
     margin-right: 26px;
+
+    @media @800m {
+      flex: 0 0 48px;
+      margin-right: 14px;
+    }
   }
 
   &__content {
@@ -49,6 +64,10 @@ export default {
     border-radius: 12px;
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(96, 108, 128, 0.05);
+
+    @media @mobile {
+      padding: 14px;
+    }
   }
 }
 </style>

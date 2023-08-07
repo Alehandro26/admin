@@ -25,6 +25,12 @@ export default {
       errorEnter: false
     }
   },
+  mounted() {
+    window.addEventListener('keypress', this.enterOnKey)
+  },
+  beforeDestroy() {
+    window.removeEventListener('keypress', this.enterOnKey)
+  },
   methods: {
     async enter() {
       const data = await login(this.username, this.password);
@@ -32,12 +38,19 @@ export default {
       if (!data) {
         this.errorEnter = !data;
       }
+    },
+    enterOnKey(e) {
+      if (e.charCode === 13) {
+        this.enter();
+      }
     }
   }
 }
 </script>
 
 <style lang="less">
+@import '../styles/vars.less';
+
 .home {
   height: 100%;
   width: 100%;
@@ -52,6 +65,10 @@ export default {
     flex-direction: column;
     border-radius: 24px;
     background: #FFF;
+
+    @media @tablet {
+      margin: 0 20px;
+    }
   }
 
   &__title {
@@ -76,6 +93,10 @@ export default {
     font-style: normal;
     font-weight: 600;
     line-height: 28px;
+
+    @media @tablet {
+      padding: 12px 21px;
+    }
   }
 }
 </style>

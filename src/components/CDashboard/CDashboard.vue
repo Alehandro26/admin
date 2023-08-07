@@ -17,8 +17,14 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/vars.less';
+
 .dashboard {
     display: flex;
+
+    @media @mobile {
+        flex-direction: column;
+    }
 
     &__link {
         flex: 1;
@@ -28,8 +34,20 @@ export default {
         border-radius: 12px;
         border: 1px solid #E2E9F1;
 
+        @media @mobile {
+            padding: 12px;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
         &:first-child {
             margin-right: 24px;
+
+            @media @mobile {
+                margin-right: 0;
+            }
         }
 
         &:hover {
@@ -39,7 +57,7 @@ export default {
 
             &:last-child {
                 .dashboard__image {
-                    animation: rotate 1s ease forwards;
+                    animation: rotate 1s linear forwards;
                 }
             }
         }
@@ -65,7 +83,7 @@ export default {
         transform: rotate(0);
     }
     50% {
-        transform: rotate(180deg) scale(1.2);
+        transform: rotate(90deg) scale(1.2);
     }
     100% {
         transform: rotate(180deg);

@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/vars.less';
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -36,11 +38,24 @@ export default {
         cursor: pointer;
         transition: color .3s ease, background .3s ease;
 
+        @media @800m {
+            width: 48px;
+            height: 48px;
+            background-position: 12px 12px;
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+        }
+
         &:hover {
             background: #fff;
             opacity: 0.9;
             background-repeat: no-repeat;
             background-position: 24px 12px;
+
+            @media @800m {
+                background-position: 12px 12px;
+            }
         }
 
         &:not(:last-child) {
@@ -67,25 +82,26 @@ export default {
             background: #FFF;
             color: var(--main-color);
             opacity: 1;
+            background-position: 24px 12px;
+
+            @media @800m {
+                background-position: 12px 12px;
+            }
 
             &:first-child {
                 background-image: url(../../assets/images/dashboard_active.svg);
                 background-repeat: no-repeat;
-                background-position: 24px 12px;
             }
 
             &:nth-child(2) {
                 background-image: url(../../assets/images/statistics_active.svg);
                 background-repeat: no-repeat;
-                background-position: 24px 12px;
             }
 
             &:nth-child(3) {
                 background-image: url(../../assets/images/settings_active.svg);
                 background-repeat: no-repeat;
-                background-position: 24px 12px;
             }
-
         }
     }
 }

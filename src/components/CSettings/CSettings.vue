@@ -24,15 +24,15 @@ export default {
             loaded: false,
         }
     },
-    mounted() {
-        this.getSettings();
+    async mounted() {
+        await this.getSettings();
+        this.loaded = true;
     },
     methods: {
         async getSettings() {
             const { promoCode, promoCodeLink } = await getSettings();
             this.promocode = promoCode || '';
             this.link = promoCodeLink || '';
-            this.loaded = true;
         },
         async sendSettings() {
             if (this.promocode && this.link) {
@@ -55,7 +55,7 @@ export default {
     }
 
     &__wrapper {
-        width: 320px;
+        width: ~'min(320px, 100%)';
     }
 
     &__input {
