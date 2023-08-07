@@ -45,6 +45,10 @@ export default {
     padding-top: 40px;
     display: flex;
     flex: 1;
+
+    @media @mobile {
+      padding-top: 25px;
+    }
   }
 
   &__sidebar {

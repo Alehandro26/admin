@@ -1,11 +1,11 @@
 <template>
     <div class="dashboard">
         <router-link to="/menu/statistics/" class="dashboard__link">
-            <img src="../../assets/images/statistics_active.svg" alt="" class="dashboard__image">
+            <img src="../../assets/images/statistics-dashboard.svg" alt="" class="dashboard__image">
             <span class="dashboard__text">Статистика</span>
         </router-link>
         <router-link to="/menu/settings/" class="dashboard__link">
-            <img src="../../assets/images/settings_active.svg" alt="" class="dashboard__image">
+            <img src="../../assets/images/settings-dashboard.svg" alt="" class="dashboard__image">
             <span class="dashboard__text">Настройки</span>
         </router-link>
     </div>
